@@ -26,9 +26,12 @@ public class HomeWork_14_Task2 {
 
     } // main area
 
-    public static void sumEvenNumber(int[] arr) {
-        int sumEvenNumbers = 0;
+    public static int sumEvenNumber(int[] arr) {
+        if (arr == null && arr.length == 0) {
+            return Integer.MIN_VALUE // Хорошего решения при этих условиях нет. Оптимальное
+        }
 
+        int sumEvenNumbers = 0;
         for (int i = 0; i < arr.length; i++) {
 
             if (arr[i] % 2 == 0) {
