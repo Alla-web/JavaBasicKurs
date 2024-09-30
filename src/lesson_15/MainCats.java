@@ -30,7 +30,7 @@ public class MainCats {
 
         Cat cat1 = new Cat("Max");
         // Будет новый объект класса cat
-        // Строка, которая была передана в конструкторе будет присвоена полу класса name
+        // Строка, которая была передана в конструкторе будет присвоена полю класса name
 
         System.out.println("color: " + cat1.color);
         System.out.println("name: " + cat1.name);
