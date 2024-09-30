@@ -12,6 +12,9 @@ public class SelfLearning {
             testArray[i] = random.nextInt(101);
         }
         System.out.println(Arrays.toString(testArray));
+
+
     }
+
 }
 
