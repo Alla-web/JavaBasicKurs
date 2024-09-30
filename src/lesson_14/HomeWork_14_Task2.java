@@ -28,7 +28,7 @@ public class HomeWork_14_Task2 {
 
     public static int sumEvenNumber(int[] arr) {
         if (arr == null && arr.length == 0) {
-            return Integer.MIN_VALUE // Хорошего решения при этих условиях нет. Оптимальное
+            return Integer.MIN_VALUE; // Хорошего решения при этих условиях нет. Оптимальное
         }
 
         int sumEvenNumbers = 0;
@@ -41,7 +41,7 @@ public class HomeWork_14_Task2 {
         }
         System.out.println();
         System.out.println("Сумма чётных чисел массива = " + sumEvenNumbers);
-
+        return sumEvenNumbers;
     }
 
 
