@@ -4,6 +4,7 @@ public class MagicArray {
     int[] array;
     int cursor; // по умолчанию инициализировано значение ноль
 
+    // Конструктор по умолчанию
     public MagicArray() {
         array = new int[10]; // будет добавлено 10 ячеек к имеющемуся массиву
     }
