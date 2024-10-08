@@ -8,7 +8,6 @@ public class RubberArray_HW16 {
     // Обычный конструктор
     public RubberArray_HW16() {
         array = new int[10];
-
     }
 
     // Конструктор, принимающий в себя обычный массив и создающий RubberArray с такими де значениями

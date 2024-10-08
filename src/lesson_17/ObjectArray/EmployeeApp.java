@@ -4,13 +4,13 @@ public class EmployeeApp {
     public static void main(String[] args) {
         // Объекты
         Employee tom = new Employee("Tom", 20, 2500.45);
-        System.out.println(tom.toString());
+        tom.info();
 
         Employee carlos = new Employee("Carlos", 30, 3000.55);
-        System.out.println(carlos.toString());
+        carlos.info();
 
         Employee mike = new Employee("Mike", 35, 2000.35);
-        System.out.println(mike.toString());
+        mike.info();
 
         System.out.println("--------------------employees array---------------------------------");
 

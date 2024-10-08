@@ -7,9 +7,8 @@ public class Employee {
     private int age;
     private double salary;
 
-    // Конструкторы
+    // Конструкторы (Alt + Insert)
     public Employee() {
-
     }
 
     public Employee(String name, int age, double salary) {
@@ -19,6 +18,8 @@ public class Employee {
     }
 
     // Геттеры
+
+
     public String getName() {
         return name;
     }
@@ -33,10 +34,11 @@ public class Employee {
 
     // Сэттеры
     public void setName(String name){
+        if (name == null || name.isEmpty()) {
+            return;
+        }
         this.name = name;
     }
-
-
 
     public void setAge(int age) {
         if (age < 18 || age > 35) {
@@ -57,9 +59,14 @@ public class Employee {
     // Методы
 
     // Печать инфо о сотруднике в троку
-    public String toString() {
-        return String.format("Employee %s, age: %d, salary: %f", name, age, salary);
+    public String toString() { // выводит в строку
+        return String.format("Employee %s, age: %d, salary: %2f", name, age, salary);
     }
+
+    public void info() { // печатает полученную строку
+        System.out.println(toString());
+    }
+
 
     // печать инфо о сотрудниках (массива)
     public void printEmployeesArray(Employee[] employees) {
