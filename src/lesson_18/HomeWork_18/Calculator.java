@@ -1,5 +1,8 @@
 package lesson_18.HomeWork_18;
 
+import java.util.Arrays;
+import java.util.SortedMap;
+
 public class Calculator {
     /*
     Task 1
@@ -9,44 +12,15 @@ public class Calculator {
 Класс должен содержать:
 Статические методы для каждой математической операции,
 принимающие два аргумента и возвращающие результат операции.
+Вычисление длины окружности и площади круга по ее радиусу
      */
 
-    private int x;
-    private int y;
+/*
+Статистические методы можно вызывать в других классах без создания объектов,
+а напямую через имя класса
+ */
 
-    // constructor
-    public Calculator() {
-
-    }
-
-    public Calculator(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setX(int x) {
-        if (x >= 0) {
-            System.out.println("Wrong x");
-            return;
-        }
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-        if (y >= 0) {
-            System.out.println("Wrong y");
-            return;
-        }
-    }
+    public static final double PI = 3.14159; // объявили и инициировали константу
 
     // Methods
 
@@ -56,6 +30,18 @@ public class Calculator {
         int result = x + y;
         return result;
     }
+
+    public static int addition(int a, int... numbers) {
+        System.out.println("a -> " + a);
+        System.out.println(Arrays.toString(numbers));
+        int sum = a;
+        for (int i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        return sum;
+    }
+    // TODO доделать метод
+
 
     public static int subtraction(int x, int y) {
         System.out.println("x -> " + x);
@@ -74,8 +60,35 @@ public class Calculator {
     public static int division(int x, int y) {
         System.out.println("x -> " + x);
         System.out.println("y -> " + y);
+        if (x == 0) { // можем не проверять У на ноль, выдаст бесконечность
+            return Integer.MIN_VALUE;
+        }
         int result = x / y;
         return result;
+    }
+
+    public static double division(double x, double y) {
+        System.out.println("x -> " + x);
+        System.out.println("y -> " + y);
+        if (x == 0) { // можем не проверять У на ноль, выдаст бесконечность
+            return Integer.MIN_VALUE;
+        }
+        double result = x / y;
+        return result;
+    }
+
+    // вычисляем длину окружности по радиусу
+    public static double circumference(double radius) {
+        System.out.println("radius -> " + radius);
+        double circumference = 2*PI*radius;
+        return circumference;
+    }
+
+    // вычисляем площадь круга по радиусу
+    public static double circleArea(double radius) {
+        System.out.println("radius -> " + radius);
+        double circleArea = PI*radius*radius;
+        return circleArea;
     }
 
 
