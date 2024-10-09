@@ -1,4 +1,4 @@
-package lesson_20.HomeWork_20;
+package lesson_20.HomeWork_20.Task1;
 
 public class Shape {
 
