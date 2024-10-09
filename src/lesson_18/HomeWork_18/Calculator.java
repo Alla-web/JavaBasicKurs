@@ -87,6 +87,7 @@ public class Calculator {
     // вычисляем площадь круга по радиусу
     public static double circleArea(double radius) {
         System.out.println("radius -> " + radius);
+        // PI*r^2
         double circleArea = PI*radius*radius;
         return circleArea;
     }

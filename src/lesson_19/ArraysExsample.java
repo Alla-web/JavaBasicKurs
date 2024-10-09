@@ -19,7 +19,7 @@ public class ArraysExsample {
         System.out.println(Arrays.toString(array));
 
         // сортировка части массива from index???????????????
-        //Arrays.sort
+        Arrays.sort(array, 2,3);
         System.out.println(Arrays.toString(array));
 
         System.out.println("---------------Бинарный поиск элементов в массиве-----------------");
