@@ -42,10 +42,12 @@ public class Toy {
 
     //methods
     public void play() {
-        System.out.println("Child play pith me!");
+        System.out.println("Child play with me!");
     }
 
-
+    public String toString() {
+        return String.format("Name: %s, brand: %s, age of child: %d", name, brand, ageOfChild);
+    }
 
 
 }

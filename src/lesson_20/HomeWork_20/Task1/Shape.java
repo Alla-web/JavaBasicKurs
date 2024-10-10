@@ -2,8 +2,8 @@ package lesson_20.HomeWork_20.Task1;
 
 public class Shape {
 
-   private String name;
-   private String color;
+    private String name;
+    private String color;
 
     // constructor
     public Shape(String name) {
@@ -31,8 +31,6 @@ public class Shape {
     public void displayInfo() {
         System.out.printf("Shape: %s, color: %s\n", name, color);
     }
-
-
 
 
 }// class area
