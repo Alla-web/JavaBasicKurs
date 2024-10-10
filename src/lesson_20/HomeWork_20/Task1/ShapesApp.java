@@ -4,6 +4,18 @@ public class ShapesApp {
     public static void main(String[] args) {
 
         System.out.println("--------------------Rectangle-------------------------");
+        Rectangle rectangle0 = new Rectangle();
+        rectangle0.setName("Прямоугольник");
+        rectangle0.setColor("red");
+        rectangle0.setDimensions(10, 20);
+        rectangle0.displayInfo();
+
+        double area = rectangle0.calculateArea();
+        System.out.println("Площадь, умноженная на 2 = " + area*2);
+
+
+        System.out.println("------------------------------------------------------");
+
         Rectangle rectangle = new Rectangle("Rectangle1", 5.5, 3.2);
         rectangle.displayInfo();
 
@@ -15,6 +27,14 @@ public class ShapesApp {
         rectangle1.displayInfo();
 
         System.out.println("----------------------Circle-------------------------");
+
+        Circle circle0 = new Circle();
+        circle0.setName("Круг");
+        circle0.setColor("black");
+        circle0.displayInfo();
+
+
+        System.out.println("------------------------------------------------------");
         Circle circle = new Circle("Circle1", 6);
         circle.displayInfo();
 

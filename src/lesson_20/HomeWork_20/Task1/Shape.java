@@ -6,6 +6,10 @@ public class Shape {
     private String color;
 
     // constructor
+
+    public Shape() {
+    }
+
     public Shape(String name) {
         this.name = name;
     }
@@ -17,6 +21,10 @@ public class Shape {
 
     public String getName() {
         return name;
+    }
+
+    public String getColor() {
+        return color;
     }
 
     public void setName(String name) {
