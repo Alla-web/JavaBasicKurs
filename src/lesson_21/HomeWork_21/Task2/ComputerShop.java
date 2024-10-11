@@ -6,9 +6,16 @@ public class ComputerShop {
         // т.к. он приходит в конструктор компьютера из вне
 
         System.out.println("-------------------------Создали жёский диск----------------------------");
-        Storage storage = new Storage("LKHY", "LENOVO", 250);
-        System.out.println(storage); //??? почему этот метод использует само
-        System.out.println(storage.toString());
+        Storage storage1 = new Storage("LENOVO", "L-123", 250);
+        System.out.println(storage1); //??? почему этот метод использует самописный toString()
+        System.out.println(storage1.toString());
+        System.out.println("-------------------------Создали компьютер----------------------------");
+        Computer computer1 = new Computer(storage1, "LENOVO", "Windows", 599.99);
+        System.out.println(computer1.toString());
+        System.out.println("---------------Создали 2-й компьютер с таким же жёстким диском---------------------------------------");
+        Computer computer2 = new Computer(storage1, "LENOVO", "Windows", 450.5);
+        System.out.println(computer2.toString());
+
 
 
 

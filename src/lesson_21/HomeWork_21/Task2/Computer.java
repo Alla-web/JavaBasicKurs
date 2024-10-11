@@ -63,9 +63,9 @@ public class Computer {
     //methods
     public String toString() {
         // ??? / return System.format("Components model: %s from brand: %s\n", odel, getbrand);
-        return "Conmuter { " + id + " | manufacturer: " + manufacturer +
+        return "Conmuter { "+ "id" + id + " | manufacturer: " + manufacturer +
                 " | operatingSystem: " + operatingSystem +
-                " | price" + price + " | processor: " + processor.toString() +
+                " | price " + price + " | processor: " + processor.toString() +
                 " | memory: " + memory.toString() + " | storage: " + storage.toString();
     }
 
