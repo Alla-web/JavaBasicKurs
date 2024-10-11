@@ -57,10 +57,12 @@ public class Autobus {
         counter++; // и одновременно увеличим тек.знач.каунтера на 1
         //this.id = counter++; - в одну строку
         this.capacity = capacity;
-        this.driver = busdriver;
+
+        this.driver = busdriver; // (принимаемое значение) связь в форме АГРЕГАЦИИ - "мягкая" связь
 
         // связь в формате КОМПОЗИЦИЯ - "жёсткая" неразрывная связь
         this.autopilot = new AutoPilot("AP-v001");
+
         // реализуем двунаправленность связи
         this.autopilot.setAutobus(this);
         this.passengers = new Passenger[capacity]; // связываем с классом пассажиров

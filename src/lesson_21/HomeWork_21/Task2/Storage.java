@@ -21,15 +21,13 @@ public class Storage extends Component {
     }
 
     //methods
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder("Storage - ");
         sb.append("model: ").append(getModel());
-        sb.append("brand: ").append(getBrand());
-        sb.append("capacity of storage: ").append(storageCapacity);
-        sb.append(".");
+        sb.append("; brand: ").append(getBrand());
+        sb.append("; capacity of storage: ").append(storageCapacity);
         return sb.toString();
     }
-
 
 
 }
