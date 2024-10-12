@@ -11,18 +11,13 @@ public class Memory extends Component {
     }
 
     //methods
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder("Memory - ");
         sb.append("model: ").append(getModel());
-        sb.append("brand: ").append(getBrand());
-        sb.append("capacity of memory: ").append(memoryCapacity);
-        sb.append(".");
+        sb.append(" brand: ").append(getBrand());
+        sb.append(" capacity of memory: ").append(memoryCapacity);
         return sb.toString();
     }
-
-
-
-
 
 
 }

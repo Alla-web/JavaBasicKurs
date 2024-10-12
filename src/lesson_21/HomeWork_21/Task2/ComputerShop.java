@@ -9,15 +9,19 @@ public class ComputerShop {
         Storage storage1 = new Storage("LENOVO", "L-123", 250);
         System.out.println(storage1); //??? почему этот метод использует самописный toString()
         System.out.println(storage1.toString());
+        Storage storage2 = new Storage("ASUS", "AS-123", 500);
+        System.out.println(storage2.toString());
+
         System.out.println("-------------------------Создали компьютер----------------------------");
         Computer computer1 = new Computer(storage1, "LENOVO", "Windows", 599.99);
         System.out.println(computer1.toString());
         System.out.println("---------------Создали 2-й компьютер с таким же жёстким диском---------------------------------------");
-        Computer computer2 = new Computer(storage1, "LENOVO", "Windows", 450.5);
+        Computer computer2 = new Computer(storage2, "LENOVO", "Windows", 450.5);
         System.out.println(computer2.toString());
 
-
-
+        System.out.println("---------------Смотрим детали компьютера---------------------------------------");
+        computer1.showProcessorModel();
+        System.out.println("Объём памяти компьютера №2 (computer2.getStorage().getStorageCapacity()): " + computer2.getStorage().getStorageCapacity());
 
 
     }

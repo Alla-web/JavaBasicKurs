@@ -6,10 +6,6 @@ public class Component {
     private String model;
 
     //constructors
-    public Component() {
-
-    }
-
     public Component(String brand, String model) {
         this.brand = brand;
         this.model = model;
@@ -33,7 +29,7 @@ public class Component {
         this.model = model;
     }
 
-    public String toString(){
-      return String.format("Components model: %s from brand: %s", model, brand);
+    public String toString() {
+        return String.format("Components model: %s from brand: %s", model, brand);
     }
 }
