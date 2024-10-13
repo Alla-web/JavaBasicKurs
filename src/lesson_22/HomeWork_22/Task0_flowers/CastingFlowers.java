@@ -1,4 +1,4 @@
-package lesson_22.HomeWork_22.flowers;
+package lesson_22.HomeWork_22.Task0_flowers;
 
 public class CastingFlowers {
     public static void main(String[] args) {
