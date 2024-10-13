@@ -16,8 +16,8 @@ public class CastingExample {
          */
 
         animal.voice();
-        // доступен, т.к. он есть и в Animal, и в Cat, но реализация будет от
-        // animal.eat - не доступен, т.к.
+        // доступен, т.к. он есть и в Animal, и в Cat, но реализация будет от Cat
+        // animal.eat - не доступен, т.к. принаджелит классу Cat
 
         // Такое присвоение не допустимы
         //Animal animal1 = new Test();
@@ -64,8 +64,9 @@ public class CastingExample {
         for (int i = 0; i < animals.length; i++) {
             System.out.println("sout: " + animals[i]);
 
-            System.out.println(animals[i].getClass() + " instanceof Cat: "+ (animals[i]instanceof Cat)); // проверяем, что объект может быть приведен к классу Cat
+            // проверяем, что объект может быть приведен к классу Cat
             //т.е. является ли этот класс наследником класса Cat или его ровней (братом)
+            System.out.println(animals[i].getClass() + " instanceof Cat: "+ (animals[i]instanceof Cat));
 
             Animal current = animals[i];
 
@@ -76,7 +77,7 @@ public class CastingExample {
             }
             System.out.println("----------------------------");
         }
-        // TODO как вызвать
+
 
 
     }
