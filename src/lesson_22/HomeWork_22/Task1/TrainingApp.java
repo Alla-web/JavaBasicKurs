@@ -1,19 +1,17 @@
 package lesson_22.HomeWork_22.Task1;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class TrainingApp {
     public static void main(String[] args) {
 
-        System.out.println("------------------Person------------------------------");
-        Person max = new Person("Max");
-        max.run();
-
-        System.out.println("------------------AmateurAthlete------------------------------");
-        AmateurAthlete peter = new AmateurAthlete("Peter");
-        peter.run();
-
-        System.out.println("--------------------ProfeAthlete-------------------------------");
-        ProfeAthlete tom = new ProfeAthlete("Tom");
-        tom.run();
+        Person personMax = new Person("Max");
+        AmateurAthlete amateurPeter = new AmateurAthlete("Peter");
+        ProfiAthlete profiTom = new ProfiAthlete("Tom");
+        personMax.run();
+        amateurPeter.run();
+        profiTom.run();
 
         System.out.println("------------------------Casting--------------------------------");
         System.out.println("------------------------UpCasting--------------------------------");
@@ -21,26 +19,53 @@ public class TrainingApp {
         natali.run();
         System.out.println("-----------------------------------");
 
-        Person larisa = new ProfeAthlete("Larisa");
+        Person larisa = new ProfiAthlete("Larisa");
         larisa.run();
 
         System.out.println("------------------------DownCasting--------------------------------");
-        Person marta = new AmateurAthlete("Marta");
-        marta.run();
+        Person personMarta = new AmateurAthlete("Marta");
+        personMarta.run();
         System.out.println("-----------------------------------");
 
-        AmateurAthlete margaryta = new AmateurAthlete("Margaryta");
-        margaryta.run();
+        AmateurAthlete amateurMargaryta = new AmateurAthlete("Margaryta");
+        amateurMargaryta.run();
         System.out.println("-----------------------------------");
 
-        if (marta instanceof AmateurAthlete) {
-            margaryta = (AmateurAthlete) marta;
-            margaryta.run();
+        if (personMarta instanceof AmateurAthlete) {
+            amateurMargaryta = (AmateurAthlete) personMarta;
+            amateurMargaryta.run();
         } else {
             System.out.println("Невозможно выплнить преобразование Person в AmateurAthlete");
         }
 
-        System.out.println("-----------------------------------");
+        System.out.println("---------------------------------------------------------------");
+        // создали массив бегунов:
+        Person[] people = new Person[5];
+        people[0] = personMax;
+        people[1] = amateurPeter;
+        people[2] = profiTom;
+        people[3] = personMarta;
+        people[4] = amateurMargaryta;
+
+        // печатаем отдельный объект
+        System.out.println(personMax.toString());
+
+        System.out.println("---------------------------------------------------------------");
+
+        // печатаем массив объектов
+        System.out.println(Arrays.toString(people));
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
