@@ -8,6 +8,7 @@ public class Circle extends Shape {
     // constructor
     public Circle(double radius) {
         this.radius = radius;
+        this.type = "Circle";
     }
 
     // getters and setters

@@ -16,7 +16,7 @@ public class ShapesApp {
         System.out.println(rectangle.perimeter());
 
         System.out.println("-------------------------Triangle-----------------------------");
-        Triangle triangle = new Triangle(2.5, 5.5, 5.5, 5.5);
+        Triangle triangle = new Triangle(5.5, 5.5, 5.5);
         System.out.println(triangle.area());
         System.out.println(triangle.perimeter());
 

@@ -1,4 +1,5 @@
 package lesson_23.HomeWork_23.Task1;
+
 /*
 Task 1
 Создайте абстрактный класс Shape с абстрактными методами
@@ -10,11 +11,19 @@ Task 1
  */
 abstract class Shape {
 
+    protected String type;
+
+    // constructor
+    public Shape() {
+        this.type = "Shape";
+    }
+
     abstract double area();
+
     abstract double perimeter();
 
-    public String toString(){
-    return "{" + getClass() + "} \n";
+    public String toString() {
+        return "{" + type + ", area: " + area() + ", perimeter: " + perimeter() + "} \n";
     }
 
 }
