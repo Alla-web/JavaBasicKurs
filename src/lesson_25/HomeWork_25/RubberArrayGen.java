@@ -22,9 +22,11 @@ public class RubberArrayGen<T> {
     }
 
     // геттер для массива
+    /*
     public T[] getArray() {
         return array;
     }
+     */
 
     // 1. Добавление элемента
 
@@ -96,7 +98,7 @@ public class RubberArrayGen<T> {
     }
 
     // Возвращение значения по индексу
-    public T getElementByIndex(T[] array, int index) {
+    public T getElementByIndex(int index) {
         if (index >= 0 && index < cursor) {
             System.out.println("Значение ячейки " + index + " -> " + array[index]);
             return array[index];

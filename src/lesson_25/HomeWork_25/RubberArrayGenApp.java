@@ -7,7 +7,7 @@ public class RubberArrayGenApp {
         double[] test = new double[]{1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0};
 
         // создаём объект
-        RubberArrayGen<Double> rubberArrayGen = new RubberArrayGen<Double>();
+        RubberArrayGen<Double> rubberArrayGen = new RubberArrayGen();
         /*
         //вызываем геттер для получения массива и записываем его в переменную
         //int[] array = rubberArray.getArray();
@@ -32,7 +32,7 @@ public class RubberArrayGenApp {
         System.out.println(rubberArrayGen.toString());
 
         System.out.println("----------------Возвращение значения элемента массива по его индексу----------------");
-        System.out.println("Значение элемента -> " + rubberArrayGen.getElementByIndex(rubberArrayGen.getArray(), 0));
+        System.out.println("Значение элемента -> " + rubberArrayGen.getElementByIndex(0));
 
         System.out.println("----------------Удаление элемента массива по его индексу----------------");
         System.out.println(rubberArrayGen.toString());
