@@ -1,4 +1,4 @@
-package lesson_26.homeWork_26.task2;
+package lesson_26.homeWork_26.task9;
 
 /*
 Создайте обобщенный класс NumericPair, который хранит две
