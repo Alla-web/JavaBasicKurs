@@ -1,4 +1,4 @@
-package lesson_26.HomeWork_26.task1;
+package lesson_26.homeWork_26.task1;
 
 public class Pair<T> {
 
