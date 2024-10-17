@@ -13,12 +13,16 @@ public class RubberArray_HW16 {
     // Конструктор, принимающий в себя обычный массив
     // и создающий RubberArray с такими де значениями
     public RubberArray_HW16(int[] array) {
-        // создаём массив такой же длина как входящий
-        this.array = new int[array.length * 2];
-        // перезаписываем данные из входящего массива в наш новый
-        for (int i = 0; i < array.length; i++) {
-            this.array[i] = array[i];
-            this.cursor++;
+        if (array == null || array.length == 0) {
+            this.array = new int[10];
+        } else {
+            // создаём массив такой же длина как входящий
+            this.array = new int[array.length * 2];
+            // перезаписываем данные из входящего массива в наш новый
+            for (int i = 0; i < array.length; i++) {
+                this.array[i] = array[i];
+                this.cursor++;
+            }
         }
     }
 
@@ -56,6 +60,7 @@ public class RubberArray_HW16 {
         for (int i = 0; i < numbers.length; i++) {
             add(numbers[i]);
         }
+
     }
 
     // Динамическое расширение массива
@@ -66,7 +71,7 @@ public class RubberArray_HW16 {
 
         // 2. Перезаполняем новый массив значениями из старого
         for (int i = 0; i < cursor; i++) {
-            array[i] = newArray[i];
+            newArray[i] = array[i];
         }
 
         // 3. Перебрасываем ссылку на новый массив

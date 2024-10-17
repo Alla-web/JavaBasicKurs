@@ -71,7 +71,7 @@ public class MyArrayGenList<T> {
 
         // 2. Перезаполняем новый массив значениями из старого
         for (int i = 0; i < cursor; i++) {
-            array[i] = newArray[i];
+            newArray[i] = array[i];
         }
 
         // 3. Перебрасываем ссылку на новый массив
