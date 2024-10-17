@@ -32,7 +32,7 @@ public class TestRubberArray {
         System.out.println(rubberArray.toString());
 
         System.out.println("----------------Возвращение значения элемента массива по его индексу----------------");
-        System.out.println("Значение элемента -> " + rubberArray.getElementByIndex(rubberArray.getArray(), 0));
+        System.out.println("Значение элемента -> " + rubberArray.getElementByIndex(0));
 
         System.out.println("----------------Удаление элемента массива по его индексу----------------");
         System.out.println(rubberArray.toString());

@@ -1,17 +1,18 @@
-package lesson_25.HomeWork_25;
+package list;
 
-public class RubberArrayGen<T> {
+public class MyArrayGenList<T> {
     private T[] array;
     private int cursor; // по умолчанию инициализировано значение ноль
 
     // Создание массива
     // Обычный конструктор
-    public RubberArrayGen() {
-        array = (T[]) new Object[10];
+    public MyArrayGenList() {
+        this.array = (T[]) new Object[10];
+        // new T() = new T(); - так нельзя, правильно - см. строка выше
     }
 
     // Конструктор, принимающий в себя обычный массив и создающий RubberArray с такими же значениями
-    public RubberArrayGen(T[] array) {
+    public MyArrayGenList(T[] array) {
         if (array == null || array.length == 0) {
             this.array = (T[]) new Object[10];
         } else {
@@ -23,17 +24,16 @@ public class RubberArrayGen<T> {
     }
 
     // геттер для массива
-    /*
     public T[] getArray() {
         return array;
     }
-     */
+
 
     // 1. Добавление элемента
 
     // 1.1. Добавление одного элемента за одно добавление
     public void add(T value) {
-        // во изб. ошибка проверяем, есть ли свободное местов массиве?
+        // во изб. ошибки проверяем, есть ли свободное местов массиве?
         // если есть - добавляем значение, если нет - расширяем массив
         // cursor по умолчанию равен 0,
         if (cursor == array.length - 1) {
@@ -44,14 +44,20 @@ public class RubberArrayGen<T> {
         // принимаемое значение переменной value
         array[cursor] = value;
         cursor++;
+        /*
+        нельзя создать так - потому, что ошибка возникнет во время работы программы
+        T link = new T();
+        поэтому нужно делать приведение типов в конструкторах, чтобы ошибка была выловлена
+        на этапе создания объекта, а не в процессе работы программы
+
+         */
     }
 
 
     // 1.2. Добавление одновременно нескольких элементов в массив
     public void add(T... numbers) {
         // с numbers мы можем обращаться как с набором интов
-        System.out.println("Приняли несколько int-ов: " + numbers.length);
-        System.out.println("Есть индекс у каждого int-а. По индексу [0] -> " + numbers[0]);
+        System.out.println("Приняли элементов: " + numbers.length);
         for (int i = 0; i < numbers.length; i++) {
             add(numbers[i]);
         }
@@ -148,7 +154,7 @@ public class RubberArrayGen<T> {
     public int indexOf(T value) {
         System.out.println("Ищем значение -> " + value);
         for (int i = 0; i < cursor; i++) {
-            if (array[i] == value) {
+            if (array[i].equals(value)) {
                 System.out.println("Индекс ячейки c искомым значением -> " + i);
                 return i;
             }
@@ -160,7 +166,7 @@ public class RubberArrayGen<T> {
     public int lastIndexOf(T value) {
         System.out.println("Ищем значение -> " + value);
         for (int i = cursor; i > 0; i--) {
-            if (array[i] == value) {
+            if (array[i].equals(value)) {
                 System.out.println("Индекс ячейки c искомым значением -> " + i);
                 return i;
             }

@@ -10,20 +10,25 @@ public class RubberArray_HW16 {
         array = new int[10];
     }
 
-    // Конструктор, принимающий в себя обычный массив и создающий RubberArray с такими де значениями
+    // Конструктор, принимающий в себя обычный массив
+    // и создающий RubberArray с такими де значениями
     public RubberArray_HW16(int[] array) {
         // создаём массив такой же длина как входящий
         this.array = new int[array.length * 2];
         // перезаписываем данные из входящего массива в наш новый
         for (int i = 0; i < array.length; i++) {
             this.array[i] = array[i];
+            this.cursor++;
         }
     }
 
+    /*
     // геттер для массива
     public int[] getArray() {
         return array;
     }
+
+     */
 
     // 1. Добавление элемента
 
@@ -49,16 +54,12 @@ public class RubberArray_HW16 {
         System.out.println("Приняли несколько int-ов: " + numbers.length);
         System.out.println("Есть индекс у каждого int-а. По индексу [0] -> " + numbers[0]);
         for (int i = 0; i < numbers.length; i++) {
-            if (cursor >= array.length) {
-                // расширить массив перед добавлением нового элемента:
-                expandArray();
-            }
-            array[cursor++] = numbers[i];
+            add(numbers[i]);
         }
     }
 
     // Динамическое расширение массива
-   private void expandArray() {
+    private void expandArray() {
         System.out.println("Расширяем массив! Курсор = " + cursor);
         // 1. Создали новый массив с нулевыми значениями по умолчанию
         int[] newArray = new int[array.length * 2];
@@ -94,8 +95,8 @@ public class RubberArray_HW16 {
         return result;
     }
 
-    // Возвращение значения по индексу
-    public int getElementByIndex(int[] array, int index) {
+    // Возвращение значения элемента массива по его индексу
+    public int getElementByIndex(int index) {
         if (index >= 0 && index < cursor) {
             System.out.println("Значение ячейки " + index + " -> " + array[index]);
             return array[index];
@@ -157,7 +158,7 @@ public class RubberArray_HW16 {
     }
 
     // метод поиска по значению и, как правило, есть сразу последнего значение
-   public int lastIndexOf(int value) {
+    public int lastIndexOf(int value) {
         System.out.println("Ищем значение -> " + value);
         for (int i = cursor; i > 0; i--) {
             if (array[i] == value) {
@@ -167,7 +168,6 @@ public class RubberArray_HW16 {
         }
         return -1;
     }
-
 
 }// class area
 
