@@ -21,7 +21,7 @@ public class Util {
         if (list == null || list.size() == 0) return "[]";
         StringBuilder sb = new StringBuilder("[");
         for (int i = 0; i < list.size(); i++) {
-            sb.append(list.getElementByIndex(i));
+            sb.append(list.get(i));
             sb.append((i < list.size() - 1) ? ", " : "]");
         }
         return sb.toString();
@@ -61,7 +61,7 @@ public class Util {
     public static double listSum(MyArrayGenList<? extends Number> listNumber) {
         double sum = 0;
         for (int i = 0; i < listNumber.size(); i++) {
-            sum += listNumber.getElementByIndex(i).doubleValue();
+            sum += listNumber.get(i).doubleValue();
         }
         return sum;
     }

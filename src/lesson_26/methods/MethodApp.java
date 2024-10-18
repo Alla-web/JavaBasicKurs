@@ -2,8 +2,6 @@ package lesson_26.methods;
 
 import list.MyArrayGenList;
 
-import java.io.PrintStream;
-
 public class MethodApp {
     public static void main(String[] args) {
 
@@ -32,14 +30,14 @@ public class MethodApp {
 
         System.out.println("--------------------MyArrayGenList------------------------");
         MyArrayGenList<Integer> myArrayGenListInt = new MyArrayGenList<>();
-        myArrayGenListInt.add(1, 2, 3, 4, 5, 6, 7);
+        myArrayGenListInt.addAll(1, 2, 3, 4, 5, 6, 7);
         System.out.println(Util.printArray(myArrayGenListInt));
 
         double listSum = Util.listSum(myArrayGenListInt);
         System.out.println("listSum = " + listSum);
 
         MyArrayGenList<String> myArrayGenListStr = new MyArrayGenList<>();
-        myArrayGenListStr.add("Alla", "Nata", "Marta");
+        myArrayGenListStr.addAll("Alla", "Nata", "Marta");
         System.out.println(Util.printArray(myArrayGenListStr));
 
 

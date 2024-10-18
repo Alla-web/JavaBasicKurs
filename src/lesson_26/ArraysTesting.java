@@ -7,20 +7,20 @@ public class ArraysTesting {
 
         System.out.println("-------------------------Integer------------------------------");
         MyArrayGenList<Integer> numbers = new MyArrayGenList<>();
-        numbers.add(1,2,3,4,5,6);
+        numbers.addAll(1,2,3,4,5,6);
         System.out.println(numbers);
 
-        System.out.println(numbers.removeBiValue(5));
+        System.out.println(numbers.remove(5));
         System.out.println(numbers);
 
         System.out.println("-------------------------String------------------------------");
         MyArrayGenList<String> strings = new MyArrayGenList<>();
         strings.add("Java");
-        strings.add("Cat", "Dog", "Hamster");
+        strings.addAll("Cat", "Dog", "Hamster");
         System.out.println(strings);
 
-        System.out.println(strings.removeBiValue("Cat"));
-        System.out.println(strings.removeBiValue("Dog"));
+        System.out.println(strings.remove("Cat"));
+        System.out.println(strings.remove("Dog"));
         System.out.println(strings);
 
     }

@@ -121,7 +121,9 @@ public class RubberArray_HW16 {
          */
         if (index >= 0 && index < cursor) {
             int value = array[index];
-            for (int i = 0; i < cursor - 1; i++) {
+            // Перебираем элементы начиная с индекса
+            // и перезаписываем значениями из соседней правой ячейки
+            for (int i = index; i < cursor - 1; i++) {
                 array[i] = array[i + 1];
             }
             cursor--;
