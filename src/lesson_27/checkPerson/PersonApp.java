@@ -1,4 +1,4 @@
-package lesson_27;
+package lesson_27.checkPerson;
 
 public class PersonApp {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package lesson_27;
+package lesson_27.checkPerson;
 
 /*
 авторизавция на сайте через имейл и пароль
