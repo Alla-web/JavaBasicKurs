@@ -5,9 +5,7 @@ public class PersonApp {
         Person person = new Person("email", "password");
         System.out.println(person);
 
-
-
-
+        System.out.println("person.getEmail().isEmpty() -> " + person.getEmail().isEmpty());
 
         System.out.println("-----------------------Character-------------------------");
         System.out.println("isLetter('f') -> " + Character.isLetter('f'));
@@ -20,12 +18,6 @@ public class PersonApp {
         System.out.println("toLowerCase('F') - > " + Character.toLowerCase('F'));
         Character.isAlphabetic('c');
         //возвращает true, если символ буква
-
-
-
-
-
-
 
 
     }
