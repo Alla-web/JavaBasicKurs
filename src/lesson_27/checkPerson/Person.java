@@ -19,15 +19,14 @@ public class Person {
         return email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setEmail(String email) {
         if (isEmailValid(email)) { // проверяет валидность имейла
             this.email = email;
         }
-    }
-
-
-    public String getPassword() {
-        return password;
     }
 
     public void setPassword(String password) {
@@ -56,6 +55,11 @@ public class Person {
         5) в email перед символом @ должен быть хотя бы один символ
         6) в email первый символ должен быть буквой
          */
+
+        // ВАЖНО!!! Здесь мы проверяем негативные сценарии - если ... значит false
+        // нельзя сразу возвращать true, потому что в этом случае все остальные
+        // условия после true не будут проверяться
+
         if (email == null || email.isEmpty()) {
             return false;
         }
@@ -74,65 +78,82 @@ public class Person {
         // 3) в email после последней точки есть 2 и более символа
         int indexLastDot = email.lastIndexOf('.');
         if (indexLastDot == -1 || indexLastDot == email.length() - 1) return false;
-        if ((email.length() - 1 - indexLastDot) >= 2) return true;
+        if ((email.length() - 1 - indexLastDot) < 2) return false;
 
         //  4) email содержит алфавит; цифры; -; _; .; @
-        // алфавит
+        // берём каждый символ и проверяем, что он не явл-ся запещённым
+        //если нахожу не подходящий - возвращаю false
         for (int i = 0; i < email.length(); i++) {
-            char currentChar = email.charAt(i);
-            if (Character.isAlphabetic(currentChar) || Character.isDigit(currentChar) || currentChar == '-' || currentChar == '_' || currentChar == '.' || currentChar == '@') {
-                return true;
+            char ch = email.charAt(i);
+            if (!(Character.isAlphabetic(ch) || Character.isDigit(ch) || ch == '-' || ch == '_' || ch == '.' || ch == '@')) {
+                /*
+            Равнозначные выражения.
+            if (!Character.isAlphabetic(ch) && !Character.isDigit(ch) && ch != '-' && ch != '_' && ch != '.' && ch != '@') return false;
+            if (!(Character.isAlphabetic(ch) || Character.isDigit(ch) || ch == '-' || ch == '_' || ch == '.' || ch == '@')) return false;
+             */
+                return false;
             }
         }
 
         // 5) в email перед символом @ должен быть хотя бы один символ
-        if (indexAt > 0) return true;
+        // если индекс @ стоит первым (индекс 0) - значит перед ним нет никого
+        if (indexAt == 0) return false;
 
         // 6) в email первый символ должен быть буквой
-        if (Character.isLetter(email.charAt(0))) return true;
+        char firstChar = email.charAt(0);
+        if (!Character.isLetter(firstChar)) return false;
 
-        //если все проверки верны - возвращаем true
+        //если все проверки пройдены - возвращаем true (email подходит)
         return true;
-
     }
 
     private boolean isPasswordValid(String password) {
-    /*
-    1) длина >=8
-    2) должна быть мин 1 цифра
-    3) должна быть мин 1 маленькая буква
-    4) должна быть мин 1 большая буква
-    5) должен быть мин 1 спецсимвол из набора: ! @ % $ * () [] . ? _
+        /*
+        1) длина >=8
+        2) должна быть мин 1 цифра
+        3) должна быть мин 1 маленькая буква
+        4) должна быть мин 1 большая буква
+        5) должен быть мин 1 спецсимвол из набора: ! @ % $ * () [] . ? _
 
-    создать 5 boolean-переменных и каждая отвечает за свой пункт,
-    пароль будет подходить, только если все 5 true
-    return b1 && b2 && b3 && b4 && b5;
-    */
+        создать 5 boolean-переменных и каждая отвечает за свой пункт,
+        пароль будет подходить, только если все 5 true
+        return b1 && b2 && b3 && b4 && b5;
+        */
+
+        // ВАЖНО!!! Должны все условия выполняться одновременно
+        // значит
+
         // 1) длина >=8
-        if (password.length() >= 8) return true;
+        boolean passwordLength = false;
+        if (password == null || password.length() < 8) {
+            System.out.println("Password should be at least 8 characters");
+            return passwordLength = false;
+        } else{
+            if (password.length() >= 8) return passwordLength = true;
+        }
+
+        boolean isDigit = false;
+        boolean isUpperCase = false;
+        boolean isLowerCase = false;
+        boolean isSpecialSymbol = false;
+
+        String symbols = "!@%$*()[].?_";
 
         // 2) должна быть мин 1 цифра
+        // Перебираю символы
         for (int i = 0; i < password.length(); i++) {
-            if (Character.isDigit(password.charAt(i))) return true;
-        }
+            char ch = password.charAt(i);
 
-        // 3) должна быть мин 1 маленькая буква
-        for (int i = 0; i < password.length(); i++) {
-            if (Character.isLowerCase(password.charAt(i))) return true;
+            if (Character.isDigit(ch)) isDigit = true;
+            if (Character.isUpperCase(ch)) isUpperCase = true;
+            if (Character.isLowerCase(ch)) isLowerCase = true;
+            if (symbols.indexOf(ch) >= 0) isSpecialSymbol = true;
+            // if (symbols.contains(String.valueOf(ch))) isSpecialSymbol = true;
         }
+        System.out.printf("(passLength) %s | (Digit) %s | (LowerCase) %s | (UpperCase) %s | (SpSymbol) %s\n", passwordLength, isDigit, isLowerCase, isUpperCase, isSpecialSymbol);
+        // Если хотя бы в одной переменной останется значение false, то весь пароль НЕ будет признан валидным = (признан не валидным)
+        return passwordLength && isDigit && isUpperCase && isLowerCase && isSpecialSymbol;
 
-        // 4) должна быть мин 1 большая буква
-        for (int i = 0; i < password.length(); i++) {
-            if (Character.isUpperCase(password.charAt(i))) return true;
-        }
-
-        // 5) должен быть мин 1 спецсимвол из набора: ! @ % $ * () [] . ? _
-        for (int i = 0; i < password.length(); i++) {
-            char currentChar2 = password.charAt(i);
-            if (currentChar2 == '!' || currentChar2 == '@' || currentChar2 == '%' || currentChar2 == '$' || currentChar2 == '*' || currentChar2 == '(' || currentChar2 == ')' || currentChar2 == '[' || currentChar2 == ']' || currentChar2 == '.' || currentChar2 == '?' || currentChar2 == '_')
-                return true;
-        }
-        return false;
     }
 
 
