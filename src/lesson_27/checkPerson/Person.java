@@ -56,39 +56,43 @@ public class Person {
         5) в email перед символом @ должен быть хотя бы один символ
         6) в email первый символ должен быть буквой
          */
-        if (email != null || !email.isEmpty()) {
-            // 1) email должен содержать символ @ и только один
-            // находими индекс первого символа @ в строке
-            int indexAt = email.indexOf('@');
-            // находим последний индекс последнего символа @ в строке
-            //int lastAt = email.lastIndexOf('@');
-            if (indexAt == -1 || indexAt != email.lastIndexOf('@')) return false;
-
-            // 2) email должен содержать символ . и после символа @
-            int dotIndexAfterAt = email.indexOf('@', indexAt + 1);
-            if (dotIndexAfterAt == -1) return false;
-
-            // 3) в email после последней точки есть 2 и более символа
-            int indexLastDot = email.lastIndexOf('.');
-            if (indexLastDot == -1 || indexLastDot == email.length() - 1) return false;
-            if ((email.length() - 1 - indexLastDot) >= 2) return true;
-
-            //  4) email содержит алфавит; цифры; -; _; .; @
-            // алфавит
-            for (int i = 0; i < email.length(); i++) {
-                char currentChar = email.charAt(i);
-                if (Character.isAlphabetic(currentChar) || Character.isDigit(currentChar) || currentChar == '-' || currentChar == '_' || currentChar == '.' || currentChar == '@') {
-                    return true;
-                }
-            }
-
-            // 5) в email перед символом @ должен быть хотя бы один символ
-            if (indexAt > 0) return true;
-
-            // 6) в email первый символ должен быть буквой
-            if (Character.isLetter(email.charAt(0))) return true;
+        if (email == null || email.isEmpty()) {
+            return false;
         }
-        return false;
+
+        // 1) email должен содержать символ @ и только один
+        // находими индекс первого символа @ в строке
+        int indexAt = email.indexOf('@');
+        // находим последний индекс последнего символа @ в строке
+        //int lastAt = email.lastIndexOf('@');
+        if (indexAt == -1 || indexAt != email.lastIndexOf('@')) return false;
+
+        // 2) email должен содержать символ . и после символа @
+        int dotIndexAfterAt = email.indexOf('.', indexAt + 1);
+        if (dotIndexAfterAt == -1) return false;
+
+        // 3) в email после последней точки есть 2 и более символа
+        int indexLastDot = email.lastIndexOf('.');
+        if (indexLastDot == -1 || indexLastDot == email.length() - 1) return false;
+        if ((email.length() - 1 - indexLastDot) >= 2) return true;
+
+        //  4) email содержит алфавит; цифры; -; _; .; @
+        // алфавит
+        for (int i = 0; i < email.length(); i++) {
+            char currentChar = email.charAt(i);
+            if (Character.isAlphabetic(currentChar) || Character.isDigit(currentChar) || currentChar == '-' || currentChar == '_' || currentChar == '.' || currentChar == '@') {
+                return true;
+            }
+        }
+
+        // 5) в email перед символом @ должен быть хотя бы один символ
+        if (indexAt > 0) return true;
+
+        // 6) в email первый символ должен быть буквой
+        if (Character.isLetter(email.charAt(0))) return true;
+
+        //если все проверки верны - возвращаем true
+        return true;
 
     }
 
