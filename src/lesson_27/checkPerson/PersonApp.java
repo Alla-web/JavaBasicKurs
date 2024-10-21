@@ -5,8 +5,11 @@ public class PersonApp {
         Person person = new Person("email", "password");
         System.out.println(person);
 
+
+
+
+
         System.out.println("-----------------------Character-------------------------");
-        /*
         System.out.println("isLetter('f') -> " + Character.isLetter('f'));
         System.out.println("isDigit('5') -> " + Character.isDigit('5'));
         System.out.println("isLetterOrDigit('-') -> " + Character.isLetterOrDigit('-'));
@@ -18,12 +21,10 @@ public class PersonApp {
         Character.isAlphabetic('c');
         //возвращает true, если символ буква
 
-         */
 
-        System.out.println("person.getEmail().isEmpty() -> " + person.getEmail().isEmpty());
 
-        System.out.println("-----------------------isEmailValid-------------------------");
-        Person person1 =
+
+
 
 
 
