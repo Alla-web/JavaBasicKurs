@@ -127,9 +127,7 @@ public class Person {
         boolean passwordLength = false;
         if (password == null || password.length() < 8) {
             System.out.println("Password should be at least 8 characters");
-            return passwordLength = false;
-        } else{
-            if (password.length() >= 8) return passwordLength = true;
+            return false;
         }
 
         boolean isDigit = false;
@@ -137,22 +135,23 @@ public class Person {
         boolean isLowerCase = false;
         boolean isSpecialSymbol = false;
 
-        String symbols = "!@%$*()[].?_";
+        String symbols = "!%$@&*()[].,-";
 
         // 2) должна быть мин 1 цифра
         // Перебираю символы
         for (int i = 0; i < password.length(); i++) {
             char ch = password.charAt(i);
 
-            if (Character.isDigit(ch)) isDigit = true;
-            if (Character.isUpperCase(ch)) isUpperCase = true;
-            if (Character.isLowerCase(ch)) isLowerCase = true;
+            if (Character.isDigit(ch)) isDigit = true; // res[0] = true
+            if (Character.isUpperCase(ch)) isUpperCase = true; // res[1] = true
+            if (Character.isLowerCase(ch)) isLowerCase = true; //  res[2] = true
             if (symbols.indexOf(ch) >= 0) isSpecialSymbol = true;
             // if (symbols.contains(String.valueOf(ch))) isSpecialSymbol = true;
         }
-        System.out.printf("(passLength) %s | (Digit) %s | (LowerCase) %s | (UpperCase) %s | (SpSymbol) %s\n", passwordLength, isDigit, isLowerCase, isUpperCase, isSpecialSymbol);
+        // System.out.printf("%s | %s | %s | %s\n", isDigit, isUpperCase, isLowerCase, isSpecialSymbol);
+
         // Если хотя бы в одной переменной останется значение false, то весь пароль НЕ будет признан валидным = (признан не валидным)
-        return passwordLength && isDigit && isUpperCase && isLowerCase && isSpecialSymbol;
+        return isDigit && isUpperCase && isLowerCase && isSpecialSymbol;
 
     }
 

@@ -1,13 +1,14 @@
 package lesson_30.persons;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+//указываем упорядочивание тестовых методов в классе
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//порядок запуска методов класса будет определяться аннотацией @Order
 public class PersonTest {
     Person person;
     String startEmail = "john@test.com";
@@ -26,7 +27,9 @@ public class PersonTest {
     4) проверяем равентсво person.getEmail с валидным Email, который мы установили
      */
 
+    //ВАЛИДНЫЙ сценарий
     @Test
+    @Order(10)
     void testValidEmailSet() {
         String validEmail = "valid@test.com";
         person.setEmail(validEmail);
@@ -37,10 +40,10 @@ public class PersonTest {
     /*
     НЕВАЛИДНЫЙ сценарий
     1) берём НЕвалидный Email
-    2) устанавливаю Невалидный Email для person
+    2) устанавливаю НЕвалидный Email для person
     3) ожидаю результат: Email установлен не будет,
-        3.1)значение поля пароль у персон не будет равно невалидному имейлу
-        3.2) значение имейл у персон останется прежним
+        3.1) значение поля Email у персон не будет равно НЕвалидному Email
+        3.2) значение Email у персон останется прежним
     */
 
     @ParameterizedTest
@@ -89,7 +92,54 @@ public class PersonTest {
     2) устанавливаю валидный password для person
     3) ожидаю, что у person теперь валидный password, который мы установили на 2-м шаге
     4) проверяем равентсво person.getPassword с валидным password, который мы установили
-     */
+    */
+
+    //ВАЛИДНЫЙ сценарий
+    @Test
+    @Order(20)
+    void testValidPasswordSet() {
+        String validPassword = "qwerty2Q$";
+        person.setPassword(validPassword);
+        System.out.println("current password -> " + validPassword);
+        Assertions.assertEquals(validPassword, person.getPassword());
+    }
+
+    /*
+    НЕВАЛИДНЫЙ сценарий
+    1) берём НЕвалидный password (получаем из отдельного метода)
+    2) устанавливаю НЕвалидный password для person
+    3) ожидаю результат: password установлен не будет,
+        3.1) значение поля password у персон не будет равно НЕвалидному password
+        3.2) значение имейл у персон останется прежним
+    */
+
+    @ParameterizedTest
+    @MethodSource("InvalidPasswordData")
+    void testinvalidPasswordSet(String invalidPassword) {
+        //генерируем логику проверки
+        person.setPassword(invalidPassword);
+        Assertions.assertNotEquals(invalidPassword, person.getPassword());
+        Assertions.assertEquals(startPassword, person.getPassword());
+    }
+
+    static Stream<String> InvalidPasswordData() {
+        /*
+        условия валидного пароля:
+        1) длина >=8
+        2) должна быть мин 1 цифра
+        3) должна быть мин 1 маленькая буква
+        4) должна быть мин 1 большая буква
+        5) должен быть мин 1 спецсимвол из набора: ! @ % $ * () [] . ? _
+         */
+        return Stream.of(
+                //генерируем набор параметров проверки
+                "qwerty1",
+                "qwertyQ$",
+                "QWERTY1Q$",
+                "qwerty1q$",
+                "qwerty1Q"
+        );
+    }
 
 
 }
