@@ -8,14 +8,14 @@ public class Rectangle {
     private double width;
 
     // constructors
-    public Rectangle(double length, double width) {
-        this.length = length;
-        this.width = width;
-    }
-
     public Rectangle() {
         this.length = 1.0;
         this.width = 1.0;
+    }
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
     }
 
     // getters
@@ -37,14 +37,14 @@ public class Rectangle {
     }
 
     // methods
-    public String toString(){
-    return String.format("Rectangle [length = %.2f, width = %.2f]", length, width);
+    public String toString() {
+        return String.format("Rectangle [length = %.2f, width = %.2f]", length, width);
     }
 
     @Override
     public boolean equals(Object obj) {
-        // если ссылка на объекты (1-й - объект, от имени которого вызывается метод equals() и
-        // 2-й - объект, аргумент, который передан в метод для сравнения с 1-м) одинаковая,
+        // если ссылки на объекты (1-й - объект, от имени которого вызывается метод equals() и
+        // 2-й - объект, аргумент, который передан в метод для сравнения с 1-м) одинаковые,
         // объекты точно равны
         if (this == obj) return true;
 
@@ -59,4 +59,8 @@ public class Rectangle {
         return Objects.equals(length, rectangle.length) &&
                 Objects.equals(width, rectangle.width);
     }
+
+
+
+
 }

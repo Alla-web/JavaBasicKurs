@@ -4,6 +4,20 @@ package list;
  */
 
 import java.lang.reflect.Array;
+import java.util.Iterator;
+/*
+Iterable (интерфейс) - означает, что все объекты этого класса можно перебирать (итерировать).
+содержить только один метод, который возвращает итератор (тот самы объект-закладку,
+который и позволяет перебирать коллекцию). Возвращает Iterator<T> iterator() - возвращает
+итератор для коллекции
+
+
+Iterator - собственно итератор, который позволяет обходить коллекцию
+boolean hasNext() - есть ли следующий элемент
+T next() - возвращает следующий элемент
+void remove() - не обязательный. Удаляет последний возвращаемый элемент
+ */
+
 
 public class MyArrayGenList<T> implements MyList<T> {
 
@@ -254,7 +268,7 @@ public class MyArrayGenList<T> implements MyList<T> {
     }
 
     //-----------------------------------------------------------------------------------
-   // метод должен вернуть наш магический массив в виде обычного массива
+    // метод должен вернуть наш магический массив в виде обычного массива
     @Override
     public T[] toArray() {
         /*
@@ -273,7 +287,7 @@ public class MyArrayGenList<T> implements MyList<T> {
 оздаваемый массив будет тоже null-вый и будет ошибка
  поэтому перед созданием объекта нужно добавить проверку:
  */
-        if (cursor==0) return null;
+        if (cursor == 0) return null;
 
         Class<T> clazz = (Class<T>) array[0].getClass();
         //System.out.println("clazz -> " + clazz);
@@ -293,6 +307,41 @@ public class MyArrayGenList<T> implements MyList<T> {
         }
          */
     }
+
+    //--------------------------------------------------------------------------------
+    // метод наследуемый от интерфейса Iterable
+    @Override
+    public Iterator<T> iterator() {
+        //TODO - написать имплементацию Iterator
+        return new MyIterator();
+    }
+
+    //создаём класс для последующей работы итератора с имплементацией класса Iterator
+    private class MyIterator implements Iterator<T> {
+
+        int currentIndex = 0;
+
+        // boolean hasNext() - есть ли следующий элемент
+        @Override
+        public boolean hasNext() {
+            //т.к. это вложенный класс, мы имеем доступ ко всем переменным основного класса
+            return currentIndex < cursor;
+        }
+
+        // T next() - возвращает следующий элемент
+        @Override
+        public T next() {
+           /*
+            T value = array[currentIndex];
+            currentIndex++;
+            return value;
+             */
+            return array[currentIndex++]; // коротко
+        }
+    }
+
+//---------------------------------------------------------------------------------
+
 
 }// class area
 
