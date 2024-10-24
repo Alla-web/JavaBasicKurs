@@ -3,12 +3,11 @@ package lesson_30.persons;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.logging.SocketHandler;
 import java.util.stream.Stream;
 
-//указываем упорядочивание тестовых методов в классе
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-//порядок запуска методов класса будет определяться аннотацией @Order
 public class PersonTest {
     Person person;
     String startEmail = "john@test.com";
@@ -29,7 +28,6 @@ public class PersonTest {
 
     //ВАЛИДНЫЙ сценарий
     @Test
-    @Order(10)
     void testValidEmailSet() {
         String validEmail = "valid@test.com";
         person.setEmail(validEmail);
@@ -48,7 +46,7 @@ public class PersonTest {
 
     @ParameterizedTest
     @MethodSource("invalidEmailData")
-    void testinvalidEmailSet(String invalidEmail) {
+    void testInvalidEmailSet(String invalidEmail) {
         person.setEmail(invalidEmail);
         //генерируем логику проверки
         Assertions.assertNotEquals(invalidEmail, person.getEmail()); //
@@ -95,13 +93,22 @@ public class PersonTest {
     */
 
     //ВАЛИДНЫЙ сценарий
-    @Test
-    @Order(20)
-    void testValidPasswordSet() {
-        String validPassword = "qwerty2Q$";
+    @ParameterizedTest
+    @ValueSource(strings = {"qwerty2Q$", "Qwerty2q!"})
+    void testValidPasswordSet(String validPassword) {
         person.setPassword(validPassword);
         System.out.println("current password -> " + validPassword);
         Assertions.assertEquals(validPassword, person.getPassword());
+    }
+
+    //------Сравнение на null
+    @Disabled
+    @Test
+    void assertNull() {
+        String string = null;
+        Assertions.assertEquals(null, string);
+        // такое сравнение должно выдать ошибку, но при jupiter5
+        // этот тест ошибочно проходит
     }
 
     /*
