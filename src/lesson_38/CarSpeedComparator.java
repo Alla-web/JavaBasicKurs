@@ -20,8 +20,6 @@ public class CarSpeedComparator implements Comparator<Car> {
         car2 = 200
         car1 - car2 = положительное значение возвращается, а значит car1 >
         car2 - car1 = отрицательное значение возвращается
-
-
          */
 
         //return car2.getSpeed()-car1.getSpeed();
