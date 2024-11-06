@@ -15,6 +15,8 @@ public class Task1 {
         Collection<Integer> integers2 = new ArrayList<>(List.of(3, 4, 5, 6));
 
         intersectionOfSets(integers1, integers2);
+        intersectionOfSets(integers2, integers1);
+
     }
 
     //boolean
