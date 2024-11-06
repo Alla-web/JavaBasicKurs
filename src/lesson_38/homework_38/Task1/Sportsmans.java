@@ -1,11 +1,11 @@
-package lesson_38.homework_38;
+package lesson_38.homework_38.Task1;
 
-public class Sportsman implements Comparable<Sportsman>{
+public class Sportsmans implements Comparable<Sportsmans>{
     String name;
     int age;
-    int score;
+    double score;
 
-    public Sportsman(String name, int age, int score) {
+    public Sportsmans(String name, int age, double score) {
         this.name = name;
         this.age = age;
         this.score = score;
@@ -27,7 +27,7 @@ public class Sportsman implements Comparable<Sportsman>{
         this.age = age;
     }
 
-    public int getScore() {
+    public double getScore() {
         return score;
     }
 
@@ -37,7 +37,7 @@ public class Sportsman implements Comparable<Sportsman>{
 
     @Override
     public String toString() {
-        return "\nSportsman{" +
+        return "\nSportsmans{" +
                 "name: " + name + '\'' +
                 ", age: " + age +
                 ", score: " + score +
@@ -50,7 +50,7 @@ public class Sportsman implements Comparable<Sportsman>{
 
     //сортировка в естественном порядке по ИМЕНИ
     @Override
-    public int compareTo(Sportsman sp1) {
+    public int compareTo(Sportsmans sp1) {
         return this.name.compareToIgnoreCase(sp1.name);
     }
 
