@@ -43,7 +43,7 @@ public class SetExample {
 
         System.out.println("----------------------Set methods-----------------------");
         System.out.println("----------------------добавление элемента по значению-----------------------");
-        // integers.add() добавление элемента
+        // add() добавление элемента
         // вернет true, если элемент добавлен
         System.out.println("integers.add(100) -> " + integers.add(100));
         System.out.println("integers" + integers);
@@ -52,14 +52,14 @@ public class SetExample {
         System.out.println("integers -> " + integers);
 
         System.out.println("------------------удаление элемента по значению--------------------");
-        //удаление эл-та по значению
+        //remove() - удаление эл-та по значению
         System.out.println("integers.remove(100) -> " + integers.remove(100));
         System.out.println("integers -> " + integers);
         System.out.println("integers.remove(100) -> " + integers.remove(100));
         System.out.println("integers -> " + integers);
 
         System.out.println("----------------сожержит----------------------");
-        //проверяет присутствие значения во множестве (в сэте)
+        //contains() - проверяет присутствие значения во множестве (в сэте)
         System.out.println("integers.contains(100)" + integers.contains(100));
         System.out.println("integers.contains(32)" + integers.contains(32));
 
@@ -146,15 +146,6 @@ public class SetExample {
         Comparator<Integer> comparator = (Comparator<Integer>) treeSet.comparator();
         System.out.println("comparator -> " + comparator);
 
-
-
-
-
-
-
-
-
-
     }//Main
 
     public static <T> List<T> deleteDuplicates(List<T> list) {
@@ -162,8 +153,6 @@ public class SetExample {
         //получить множество без дубликатов
         Set<T> set = new LinkedHashSet<>(list);
         return new ArrayList<>(set);
-
-
     }
 
 }

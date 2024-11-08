@@ -11,23 +11,24 @@ public class Task1 {
      */
     public static void main(String[] args) {
         String string = "Тестовая строка для удаления слов, которые повторяются. \\\"строка\\\" для удаления!";
-        getUniqueSortedWords(string);
+        System.out.println("Список уникальных слов: "+getUniqueSortedWords(string));
 
     }// main
 
     public static List<String> getUniqueSortedWords(String string) {
         System.out.println("string -> " + string);
+        //удалили пробелы вначала и вконце (trim()), а в середине не трогаются пробелы, знаки припинания из нашей строки
+        string = string.trim().replaceAll("[^a-zA-Z0-9a-яА-Я\\s]", "");
+        System.out.println("string -> " + string);
 
-        String[] words = string.replaceAll("[^a-zA-Zа-яА-Я\\s]", "").split(" ");
+        //разделили строку на отдельные слова по пробельному символу и записали их в массив стрингов
+        String[] words = string.split("\\s"); //ищи пробелы в ловах
+        System.out.println(Arrays.toString(words));
 
-        Set<String> setList = new LinkedHashSet<>(Arrays.asList(words));
-        System.out.println(setList);
-
-        List<String> list1 = new ArrayList<>(setList); //преобразуем сэт для сортировки
-        list1.sort(Comparator.comparingInt(String::length).thenComparing(Comparator.naturalOrder())); //сортируем сэт
-        System.out.println(list1);
-
-        return list1;
+        //создаём коллецию
+        Set<String> uniqueWords = new TreeSet<>(Comparator.comparing(String::length).thenComparing(Comparator.naturalOrder()));
+        uniqueWords.addAll(Arrays.asList(words));
+        return new ArrayList<>(uniqueWords);
     }
 
 }//class
