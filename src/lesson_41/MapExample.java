@@ -81,7 +81,7 @@ public class MapExample {
 
         System.out.println("------------------------getOrDefault(Object key)-----------------------");
         //взвращает значение по ключу, если ключа нет - вернут значение,
-        // которе я ему сам задам, н-р DefaultValue
+        // которе я ему сама задам, н-р DefaultValue
         value = map.getOrDefault(3, "DefaultValue"); //ключ есть - вернёт значение
         System.out.println("getOrDefault(3,\"DefaultValue\") -> " + value);
         value = map.getOrDefault(100, "DefaultValue"); //ключ есть - вернёт значение

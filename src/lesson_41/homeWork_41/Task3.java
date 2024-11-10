@@ -2,6 +2,7 @@ package lesson_41.homeWork_41;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Task3 {
     /*
@@ -28,10 +29,13 @@ public class Task3 {
         //создаём мапу для записи результата
         Map<String, Integer> intersectionKeys = new HashMap<>();
 
+        Set<String> keySet1 = map1.keySet();
+        Set<String> keySet2 = map2.keySet();
+
         // проходимся по всем парам мапы 1, проверяем на совпадение пар,
         // если есть совпадения, записываем их в резулььтирующуй мапу intersectionKeys
-        for (String key : map1.keySet()) {
-            if (map2.containsKey(key)) {
+        for (String key : keySet2) {
+            if(keySet1.contains(key)){
                 intersectionKeys.put(key, map1.get(key));
             }
         }
