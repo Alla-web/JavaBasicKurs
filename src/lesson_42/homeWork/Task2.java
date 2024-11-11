@@ -19,8 +19,13 @@ public class Task2 {
         equalWordsNumbers(string);
     }//main
 
-    public static void equalWordsNumbers(String string) {
-        String[] words = string.split("\\s");
+    public static Map<Integer, Integer> equalWordsNumbers(String string) {
+        if (string.isEmpty() || string==null){
+            System.out.println("String is empty or null");
+            return new HashMap<>();
+        }
+        string = string.toLowerCase().replaceAll("^a-za-яё", " ");
+        String[] words = string.split("\\s+");
         System.out.println(Arrays.toString(words));
         Map<Integer, Integer> wordsMap = new HashMap<>();
 
@@ -28,8 +33,9 @@ public class Task2 {
             int length = word.length();
             wordsMap.put(length, wordsMap.getOrDefault(length, 0) + 1);
         }
-
         System.out.println(wordsMap);
+
+        return wordsMap;
     }
 }//class
 

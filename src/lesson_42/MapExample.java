@@ -115,7 +115,7 @@ public class MapExample {
         setValue(V value)
          */
         //тоже живая связь с картой
-        System.out.println("--------------------------------------------");
+        System.out.println("----------------Map.Entry<K, V>----------------------------");
         Set<Map.Entry<Integer, String>> entrySet = mapColors.entrySet();
         System.out.println("entrySet -> " + entrySet);
         System.out.println("--------------------------------------------");

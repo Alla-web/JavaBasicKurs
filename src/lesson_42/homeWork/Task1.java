@@ -11,12 +11,23 @@ public class Task1 {
     Используйте HashMap<Character, Integer> для подсчета количества каждого
     символа в строках.
     Сравните две карты, чтобы определить, являются ли строки анаграммами.
+
+    Пример:
+    “listen” и “silent” — анаграммы.
+    “triangle” и “integral” — анаграммы.
+    “apple” и “papel” — анаграммы.
+    “hello” и “billion” — не анаграммы.
      */
     public static void main(String[] args) {
         String string1 = "listen";
         String string2 = "silent";
 
-        System.out.println("areAnagrams(string1, string2) -> " + areAnagrams(string1, string2));
+        if (areAnagrams(string1, string2)) {
+            System.out.println("Strings " + string1 + ", " + string2 + " are anagrams");
+        } else {
+            System.out.println("Strings aren`t anagrams");
+        }
+
     }//main
 
     public static boolean areAnagrams(String str1, String str2) {
@@ -34,6 +45,8 @@ public class Task1 {
     }
 
     private static Map<Character, Integer> getCharMap(String string) {
+        string = string.replaceAll("\\s+", " ").toLowerCase();
+
         //переводим строку в массив символов
         char[] chars = string.toCharArray();
 
