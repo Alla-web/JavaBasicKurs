@@ -65,7 +65,7 @@ public class StreamExample {
         task5();
     }
 
-       private static List<Cat> getListCats() {
+    private static List<Cat> getListCats() {
         return List.of(
                 new Cat("Bear", 5, "braun"),
                 new Cat("Python", 7, "green"),

@@ -14,13 +14,24 @@ public class Task2 {
      */
     public static void main(String[] args) {
         List<String> strings = List.of("Hello", "World", "Happy", "day", "hat", "apple", "banana");
-        System.out.println(filteredList(strings));
+        System.out.println(filteredList(strings, 'h'));
     }
 
-    private static List<String> filteredList(List<String> strings) {
+    private static List<String> filteredList(List<String> strings, char ch) {
+
+        // boolean startWith(String str) - проверяет, что строка начинается с указанной
+        // boolean endWith(String str) - проверяет, что строка заканчивается с указанной
+//        boolean res = text.startsWith("Abc"); // true
+//        System.out.println("text.startsWith(\"Abc\"): " + res);
+//        System.out.println("text.startsWith(\"abc\"): " + text.startsWith("abc")); // false
+//        System.out.println(text.endsWith("ef")); // true
+//        System.out.println(text.endsWith("f")); // true
+
+
         if (strings == null || strings.isEmpty()) return new ArrayList<>();
         Stream<String> stream = strings.stream()
-                .filter(string -> Character.toUpperCase(string.charAt(0)) == 'H');
+                .filter(string -> Character.toLowerCase(string.charAt(0)) == ch)
+                .sorted();
 
         List<String> filteredList = stream.collect(Collectors.toList());
         return filteredList;

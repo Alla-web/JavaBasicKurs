@@ -39,7 +39,7 @@ public class Cat {
 
     @Override
     public String toString() {
-        return "Cat{" +
+        return "\nCat{" +
                 "name: '" + name + '\'' +
                 ", wight: " + weight +
                 ", color: '" + color + '\'' +
