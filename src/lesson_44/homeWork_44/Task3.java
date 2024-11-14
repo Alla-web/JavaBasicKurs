@@ -20,6 +20,7 @@ public class Task3 {
 
         List<Integer> newList = integers.stream()
                 .filter(integer -> (integer % 2) == 0)
+                .peek(System.out::println)
                 .map(integer -> integer * 2)
                 .collect(Collectors.toList());
 

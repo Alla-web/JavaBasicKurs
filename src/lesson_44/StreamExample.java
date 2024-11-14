@@ -78,6 +78,12 @@ public class StreamExample {
 
         orElse
 
+        ifPresent
+
+        findFirst
+
+        findAny
+
          */
         //task1();
 

@@ -13,17 +13,19 @@ public class Task1 {
     public static void main(String[] args) {
 
         List<Integer> integers = List.of(91, 82, 73, 64, 55, 46, 37, 28, 19);
-        filteredNumbers(integers);
+        //filteredNumbers(integers);
     }
 
     private static List<Integer> filteredNumbers(List<Integer> integers) {
 
-        List<Integer> integerList = integers.stream()
+        integers.stream()
                 .filter(integer -> integer > 10)
                 .sorted(Comparator.comparingInt(integer -> integer % 10))
-                .collect(Collectors.toList());
+                .forEach(integer -> System.out.print(integer + ", "));
 
-        System.out.println(integerList);
-        return integerList;
+        return integers;
     }
+
 }
+
+

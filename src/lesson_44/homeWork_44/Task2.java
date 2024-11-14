@@ -16,12 +16,10 @@ public class Task2 {
 
     private static Optional<String> shortestString(List<String> strings) {
 
-        String shortestString = strings.stream()
-                .min(Comparator.comparing(string -> string.length()))
-                .orElse(null);
+        Optional<String> shortestString = strings.stream()
+                .min(Comparator.comparing(String::length));
 
-        System.out.println(shortestString);
-        return Optional.ofNullable(shortestString);
+        return shortestString;
     }
 
 
