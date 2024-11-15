@@ -30,8 +30,7 @@ public class PersonsApp {
         System.out.println("personFromMap -> " + personFromMap);
 
         //ищем Person с несуществующим в мапе id
-        System.out.println("Person с несуществующим в мапе id -> "+mapPepsons.get(1000));
-
+        System.out.println("Person с несуществующим в мапе id -> " + mapPepsons.get(1000));
 
 
         //нужно выдать список пёрсонов, возрастом больше 18 лет
