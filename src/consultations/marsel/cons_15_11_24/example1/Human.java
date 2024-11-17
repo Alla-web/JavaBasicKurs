@@ -1,4 +1,4 @@
-package consultations.marsel.cons_13_11_24.example2;
+package consultations.marsel.cons_15_11_24.example1;
 
 public class Human {
 

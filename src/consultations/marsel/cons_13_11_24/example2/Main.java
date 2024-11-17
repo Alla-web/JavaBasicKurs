@@ -16,13 +16,23 @@ public class Main {
         human3.sayHi();
         human4.sayHi();
 
-        System.out.println("-------------------------------------------------");
+        System.out.println("--------------------Programmer-----------------------------");
         Programmer prog = new Programmer("Bogdan", 27, 5);
         prog.sayHi();
         prog.work();
         prog.setAge(220);//???
 
+        System.out.println("--------------------Student-----------------------------");
+        Student student = new Student("Sergej", 25, 5);
+        student.sayHi();
+        student.studi();
+        student.setAge(35);
+        System.out.println(student);
 
+        System.out.println("--------------------Student-----------------------------");
+        Sportsman sportsman = new Sportsman("Olga", 36, 42);
+        sportsman.run();
+        sportsman.sayHi();
 
     }
 
